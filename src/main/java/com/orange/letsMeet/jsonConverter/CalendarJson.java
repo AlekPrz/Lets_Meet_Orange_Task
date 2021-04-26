@@ -1,4 +1,4 @@
-package com.orange.letsMeet;
+package com.orange.letsMeet.jsonConverter;
 
 import java.util.List;
 import java.util.Map;

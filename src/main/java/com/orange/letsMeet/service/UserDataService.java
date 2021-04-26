@@ -1,10 +1,11 @@
-package com.orange.letsMeet;
+package com.orange.letsMeet.service;
 
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class UserDataService {
 
@@ -34,6 +35,19 @@ public class UserDataService {
             throw new RuntimeException("Date is not valid!");
         }
 
+    }
+
+    public static long timeDifferenceBetween2Dates(Date startDate, Date endDate) {
+
+        if (endDate.before(startDate)) {
+            Date tmp = endDate;
+            endDate = startDate;
+            startDate = tmp;
+        }
+        long timeDiff = endDate.getTime() - startDate.getTime();
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(timeDiff);
+
+        return minutes;
     }
 
 }

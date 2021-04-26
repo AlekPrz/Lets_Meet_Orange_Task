@@ -1,4 +1,4 @@
-package com.orange.letsMeet;
+package com.orange.letsMeet.model;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -8,17 +8,25 @@ public class Calendar {
 
     private Date workTimeStart;
     private Date workTimeEnd;
-    private static String meetingDurationTime = "00:30";
+    public static long meetingDuration = 30;
+    private String calendarName;
     private List<Meet> plannedMeetings = new ArrayList<>();
 
-    public Calendar(Date workTimeStart, Date workTimeEnd, List<Meet> plannedMeetings) {
-        this.workTimeStart = workTimeStart;
-        this.workTimeEnd = workTimeEnd;
-        this.plannedMeetings = plannedMeetings;
+    //Range of times when we have time for meeting
+    private List<Meet> timeForMeetings = new ArrayList<>();
+
+
+    public Calendar() {
+
     }
 
-    public Calendar(){
 
+    public void setCalendarName(String calendarName) {
+        this.calendarName = calendarName;
+    }
+
+    public String getCalendarName() {
+        return calendarName;
     }
 
     public Date getWorkTimeStart() {
@@ -37,12 +45,14 @@ public class Calendar {
         this.workTimeEnd = workTimeEnd;
     }
 
-    public static String getMeetingDurationTime() {
-        return meetingDurationTime;
+
+    public List<Meet> getTimeForMeetings() {
+        return timeForMeetings;
     }
 
-    public static void setMeetingDurationTime(String meetingDurationTime) {
-        Calendar.meetingDurationTime = meetingDurationTime;
+
+    public void setTimeForMeetings(List<Meet> timeForMeetings) {
+        this.timeForMeetings = timeForMeetings;
     }
 
     public List<Meet> getPlannedMeetings() {
