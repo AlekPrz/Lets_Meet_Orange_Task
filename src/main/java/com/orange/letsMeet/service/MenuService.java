@@ -62,13 +62,16 @@ public class MenuService {
                         .sorted(Comparator.comparing(Meet::getStart))
                         .collect(Collectors.toList());
 
-        System.out.println("Free range times in work for " + Calendar.meetingDuration + "min meeting: ");
-        System.out.println("----------------------------");
         if(freeTimeAfterCompareCalendars.isEmpty()){
+            System.out.println("------------------------------");
             System.out.println("There is no free range times for meeting you need change your calendar or time of meeting duration");
+            System.out.println("----------------------------");
+        }else {
+            System.out.println("------------------------------");
+            System.out.println("Free range times in work for " + Calendar.meetingDuration + "min meeting: ");
+            freeTimeAfterCompareCalendars.forEach(System.out::println);
+            System.out.println("----------------------------");
         }
-        freeTimeAfterCompareCalendars.forEach(System.out::println);
-        System.out.println("----------------------------");
 
 
     }
@@ -91,7 +94,6 @@ public class MenuService {
                 throw new RuntimeException("Meeting duration time is higher than range time or working");
             }
         }
-
 
         Calendar.meetingDuration = changeMeetingDuration;
 

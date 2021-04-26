@@ -59,7 +59,7 @@ public class Meet {
                 ", end=" + date_format.format(end) +
                 '}';*/
 
-        return "start:" + date_format.format(start) + " end:"
+        return "Start: " + date_format.format(start) + " End: "
                 + date_format.format(end);
     }
 
